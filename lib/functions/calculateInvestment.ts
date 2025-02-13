@@ -11,7 +11,7 @@ const calculateInvestment = ({
   initialAmount,
   monthlyContribution,
   yearlyGrowth,
-}: Args) => {
+}: Args): InvestmentItem[] => {
   const monthlyGrowth = 1 + yearlyGrowth / 12 / 100;
   const prediction: InvestmentItem[] = [];
   let balance = initialAmount;
