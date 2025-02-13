@@ -10,10 +10,12 @@ describe("Header", () => {
         level: 2,
         name: "Expense Tracker",
       }),
-    ).toBeDefined();
-    expect(screen.getByRole("link", { name: "Monthly Budget" })).toBeDefined();
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", { name: "Monthly Budget" }),
+    ).toBeInTheDocument();
     expect(
       screen.getByRole("link", { name: "Investment Calculator" }),
-    ).toBeDefined();
+    ).toBeInTheDocument();
   });
 });
