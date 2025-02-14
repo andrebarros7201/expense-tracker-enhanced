@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 type Props = {
   item: { category: string; items: BudgetItem[] };
 };
-const DisplayItem = ({ item }: Props) => {
+const DisplayCategory = ({ item }: Props) => {
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
@@ -31,7 +31,10 @@ const DisplayItem = ({ item }: Props) => {
         {item.category}
       </h3>
       {isOpen && (
-        <div className={"flex w-full gap-4 flex-col border-2 "}>
+        <div
+          key={item.category}
+          className={"flex w-full gap-4 flex-col border-2"}
+        >
           {item.items.map((item: BudgetItem) => (
             <>
               {!isEditing ? (
@@ -70,4 +73,4 @@ const DisplayItem = ({ item }: Props) => {
   );
 };
 
-export default DisplayItem;
+export default DisplayCategory;
