@@ -42,6 +42,7 @@ const BudgetPage = () => {
             min={0}
             placeholder="Ex: 1000"
             ref={incomeRef}
+            label={"Income"}
             onChange={handleIncomeChange}
           />
         </div>
@@ -55,6 +56,7 @@ const BudgetPage = () => {
             name="name"
             placeholder="Groceries..."
             ref={nameRef}
+            label={"Name"}
           />
           <Input
             type="number"
@@ -62,6 +64,7 @@ const BudgetPage = () => {
             max={maxPercentage}
             ref={percentageRef}
             name="percentage"
+            label={"Percentage"}
             placeholder={`1- ${maxPercentage}`}
           />
           <div className={"flex flex-col items-start gap-2 "}>

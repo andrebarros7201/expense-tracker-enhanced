@@ -6,16 +6,20 @@ interface Props {
   name: string;
   min?: number;
   max?: number;
+  label?: string;
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void; // Correct type
 }
 
 export const Input = forwardRef<HTMLInputElement, Props>(
-  ({ placeholder, type, name, min, max, onChange }, ref) => {
+  ({ placeholder, type, name, min, max, label, onChange }, ref) => {
     return (
       <div className={"flex flex-col items-start gap-2 "}>
-        <label htmlFor={name} className={"capitalize"}>
-          {name}
-        </label>
+        {label ? (
+          <label htmlFor={name} className={"capitalize"}>
+            {name}
+          </label>
+        ) : null}
+
         <input
           type={type}
           required
