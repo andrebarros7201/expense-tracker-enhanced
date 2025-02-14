@@ -10,39 +10,46 @@ const DisplayItem = ({ item }: Props) => {
   return (
     <div
       key={item.category}
-      onClick={() => setIsOpen(!isOpen)}
       className={
-        "w-full flex flex-col items-start justify-start p-4 cursor-pointer border-2 border-blue-500 box-border"
+        "w-full flex flex-col  items-start justify-start p-4 border-2 border-blue-500 box-border"
       }
     >
-      <h3 className={"text-xl font-bold "}>{item.category}</h3>
-      {isOpen &&
-        item.items.map((item) => (
-          <div
-            key={item.id}
-            className={
-              "px-6 flex gap-4 flex-col items-center justify-center w-full md:grid grid-cols-[1.5fr_1.5fr_1.5fr_1fr_1fr] border-2 border-blue-500 box-border"
-            }
-          >
-            <p>Name: {item.name}</p>
-            <p>Percentage: {item.percentage} %</p>
-            <p>Value: {item.value}$</p>
-            <button
+      <h3
+        onClick={() => setIsOpen(!isOpen)}
+        className={"text-xl font-bold cursor-pointer"}
+      >
+        {item.category}
+      </h3>
+      {isOpen && (
+        <div className={"flex w-full gap-4 flex-col"}>
+          {item.items.map((item) => (
+            <div
+              key={item.id}
               className={
-                "px-6 py-2 bg-green-700 hover:bg-green-800 transition-all duration-300 shadow-md rounded text-white"
+                "pl-6 flex gap-4 flex-col items-center justify-center w-full md:grid grid-cols-[1.5fr_1.5fr_1.5fr_1fr_1fr] border-2 border-blue-500 box-border"
               }
             >
-              Update
-            </button>
-            <button
-              className={
-                "px-6 py-2 bg-red-600 hover:bg-red-800 transition-all duration-300 shadow-md rounded text-white"
-              }
-            >
-              Delete
-            </button>
-          </div>
-        ))}
+              <p>Name: {item.name}</p>
+              <p>Percentage: {item.percentage} %</p>
+              <p>Value: {item.value}$</p>
+              <button
+                className={
+                  "px-6 py-2 bg-green-700 hover:bg-green-800 transition-all duration-300 shadow-md rounded text-white"
+                }
+              >
+                Update
+              </button>
+              <button
+                className={
+                  "px-6 py-2 bg-red-600 hover:bg-red-800 transition-all duration-300 shadow-md rounded text-white"
+                }
+              >
+                Delete
+              </button>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
