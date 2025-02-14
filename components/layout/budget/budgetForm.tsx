@@ -33,7 +33,7 @@ const BudgetPage = () => {
   }
 
   return (
-    <section className="w-full  flex flex-col items-center justify-start flex-1 p-6">
+    <section className="w-full flex flex-col items-center justify-start flex-1">
       <div className="flex flex-col gap-6 w-full">
         <div className="p-4 shadow-lg bg-gray-100 rounded-md w-full">
           <Input
@@ -47,7 +47,7 @@ const BudgetPage = () => {
         </div>
 
         <form
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 p-4 bg-gray-100 shadow-lg rounded-md w-full"
+          className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 bg-gray-100 shadow-lg rounded-md w-full"
           onSubmit={(e) => handleSubmit(e)}
         >
           <Input
