@@ -1,12 +1,11 @@
 type Props = {
   options: string[];
-  id: string;
-  name?: string;
+  name: string;
 };
 
-export const InputSelect = ({ id, name, options }: Props) => {
+const InputSelect = ({ name, options }: Props) => {
   return (
-    <select id={id} name={name} required>
+    <select id={name} name={name} required>
       {options.map((item) => (
         <option key={item} value={item}>
           {item}
@@ -15,3 +14,5 @@ export const InputSelect = ({ id, name, options }: Props) => {
     </select>
   );
 };
+
+export default InputSelect;
