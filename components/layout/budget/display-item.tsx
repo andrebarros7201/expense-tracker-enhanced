@@ -14,23 +14,23 @@ const DisplayItem = ({ item }: Props) => {
     <div
       key={item.category}
       className={
-        "w-full flex flex-col  items-start justify-start p-4 border-2 border-blue-500 box-border"
+        "w-full flex flex-col items-center justify-start md:items-start  p-4  box-border"
       }
     >
       <h3
         onClick={() => setIsOpen(!isOpen)}
-        className={"text-xl font-bold cursor-pointer"}
+        className={"text-xl font-bold cursor-pointer mb-4 md:mb-0"}
       >
         {item.category}
       </h3>
       {isOpen && (
-        <div className={"flex w-full gap-4 flex-col"}>
+        <div className={"flex w-full gap-4 flex-col border-2 "}>
           {item.items.map((item: BudgetItem) => (
             <>
               {!isEditing ? (
                 <div
                   key={item.id}
-                  className={`md:pl-6 flex gap-4 flex-col items-center justify-center w-full md:grid grid-cols-[1.5fr_1.5fr_1.5fr_1fr_1fr]`}
+                  className={`md:pl-6 flex gap-4 flex-col items-center justify-center w-full md:grid grid-cols-[1.5fr_1.5fr_1.5fr_1fr_1fr] border-2 border-blue-500`}
                 >
                   <p>Name: {item.name}</p>
                   <p>Percentage: {item.percentage} %</p>
