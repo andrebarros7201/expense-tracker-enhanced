@@ -3,11 +3,11 @@
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import { BudgetItem } from "@/types/budgetItem";
-import DisplayItem from "@/components/layout/budget/display-item";
+import DisplayCategory from "@/components/layout/budget/display-category";
 
 const BudgetDisplayItems = () => {
   const { budgetItems } = useSelector((state: RootState) => state.budget);
-  let notEmptyCategories: { category: string; items: BudgetItem[] }[] = [];
+  const notEmptyCategories: { category: string; items: BudgetItem[] }[] = [];
 
   budgetItems.forEach((item: BudgetItem) => {
     const index = notEmptyCategories.findIndex(
@@ -45,7 +45,7 @@ const BudgetDisplayItems = () => {
       }
     >
       {notEmptyCategories.map((category) => (
-        <DisplayItem item={category} key={category.category} />
+        <DisplayCategory item={category} key={category.category} />
       ))}
     </div>
   );
