@@ -6,7 +6,7 @@ const initialState: BudgetState = {
   id: 1,
   income: 0,
   budgetItems: [],
-  categories: [],
+  categories: ["House"],
 };
 
 const budgetSlice = createSlice({
