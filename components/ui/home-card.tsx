@@ -18,13 +18,13 @@ export const HomeCard = ({
   buttonLink,
 }: Props) => {
   return (
-    <div className="bg-gray-100 rounded-xl p-6 shadow-md shadow-gray-300 flex flex-col md:flex-row items-center gap-6">
+    <div className="bg-gray-100 rounded-xl p-6 shadow-md shadow-gray-300 flex flex-col lg:flex-row items-center gap-6">
       <img
         src={image}
         alt={imageAlt}
-        className="object-contain w-1/4 md:w-1/3"
+        className="object-contain w-1/4 lg:w-1/3"
       />
-      <div className="flex items-center justify-center md:items-start flex-col gap-2 text-gray-800">
+      <div className="flex items-center justify-center lg:items-start flex-col gap-2 text-gray-800">
         <h4 className="text-lg lg:text-2xl font-bold">{title}</h4>
         <p className="text-gray-600">{description}</p>
         <Link href={buttonLink} className="mt-2">
