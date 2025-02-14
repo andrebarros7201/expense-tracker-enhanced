@@ -2,13 +2,20 @@
 import { BudgetItem } from "@/types/budgetItem";
 import { useState } from "react";
 import BudgetUpdateItemForm from "@/components/layout/budget/budget-update-item-form";
+import { removeBudgetItem } from "@/store/budgetSlice";
+import { useDispatch } from "react-redux";
 
 type Props = {
   item: { category: string; items: BudgetItem[] };
 };
 const DisplayItem = ({ item }: Props) => {
+  const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
+
+  function handleDeleteItem(item: number) {
+    dispatch(removeBudgetItem(item));
+  }
 
   return (
     <div
@@ -47,6 +54,7 @@ const DisplayItem = ({ item }: Props) => {
                     className={
                       "px-6 w-min py-2 bg-red-600 hover:bg-red-800 transition-all duration-300 shadow-md rounded text-white"
                     }
+                    onClick={() => handleDeleteItem(item.id)}
                   >
                     Delete
                   </button>
