@@ -2,17 +2,11 @@ import Link from "next/link";
 
 const Header = () => {
   return (
-    <header
-      className={
-        "w-full flex items-center justify-center border-2 border-blue-500 p-4"
-      }
-    >
+    <header className={"w-full flex items-center justify-center p-4 shadow"}>
       <div
-        className={
-          "flex items-center justify-start w-full max-w-4xl border-2 border-red-500 gap-4"
-        }
+        className={"flex items-center justify-center w-full max-w-4xl gap-4"}
       >
-        <h2 className={"text-2xl italic font-bold"}>
+        <h2 className={" text-xl lg:text-2xl italic font-bold"}>
           <Link href={"/"}>Expense Tracker</Link>
         </h2>
         <ul className={"flex justify-start items-center gap-4"}>
