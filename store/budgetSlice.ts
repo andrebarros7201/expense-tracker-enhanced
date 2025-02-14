@@ -7,6 +7,7 @@ const initialState: BudgetState = {
   income: 0,
   budgetItems: [],
   categories: ["House"],
+  maxPercentage: 100,
 };
 
 const budgetSlice = createSlice({
@@ -33,6 +34,11 @@ const budgetSlice = createSlice({
         value: state.income / percentage,
       });
       state.id++;
+      const sumItemsPercentage = state.budgetItems.reduce(
+        (sum, item: BudgetItem) => sum + item.percentage,
+        0,
+      );
+      state.maxPercentage = 100 - sumItemsPercentage;
     },
     removeBudgetItem(state, action: PayloadAction<number>) {
       const index = state.budgetItems.findIndex(

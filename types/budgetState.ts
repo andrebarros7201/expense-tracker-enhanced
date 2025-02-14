@@ -5,4 +5,5 @@ export interface BudgetState {
   categories: string[];
   income: number;
   budgetItems: BudgetItem[];
+  maxPercentage: number;
 }

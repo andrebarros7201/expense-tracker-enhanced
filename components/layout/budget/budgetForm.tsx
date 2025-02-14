@@ -6,7 +6,9 @@ import { RootState } from "@/store/store";
 import { addBudgetItem, updateIncome } from "@/store/budgetSlice";
 
 const BudgetPage = () => {
-  const categories = useSelector((state: RootState) => state.budget.categories);
+  const { categories, maxPercentage } = useSelector(
+    (state: RootState) => state.budget,
+  );
   const dispatch = useDispatch();
 
   const incomeRef = useRef<HTMLInputElement>(null);
@@ -44,7 +46,10 @@ const BudgetPage = () => {
           />
         </div>
 
-        <form className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 p-4 bg-gray-100 shadow-lg rounded-md w-full">
+        <form
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 p-4 bg-gray-100 shadow-lg rounded-md w-full"
+          onSubmit={(e) => handleSubmit(e)}
+        >
           <Input
             type="text"
             name="name"
@@ -54,10 +59,10 @@ const BudgetPage = () => {
           <Input
             type="number"
             min={1}
-            max={100}
+            max={maxPercentage}
             ref={percentageRef}
             name="percentage"
-            placeholder="1-100"
+            placeholder={`1- ${maxPercentage}`}
           />
           <div className={"flex flex-col items-start gap-2 "}>
             <label htmlFor={"category"} className={"capitalize"}>
@@ -74,11 +79,8 @@ const BudgetPage = () => {
               ))}
             </select>
           </div>
-          <button
-            onClick={(e) => handleSubmit(e)}
-            className="bg-blue-500 text-white py-2 px-6 rounded hover:bg-blue-600 transition-all duration-300 shadow-md"
-          >
-            Add
+          <button className="bg-blue-500 text-white py-2 px-6 rounded hover:bg-blue-600 transition-all duration-300 shadow-md">
+            Add New Item
           </button>
         </form>
       </div>
