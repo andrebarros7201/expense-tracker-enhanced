@@ -5,7 +5,7 @@ import { RootState } from "@/store/store";
 import { BudgetItem } from "@/types/budgetItem";
 import DisplayCategory from "@/components/layout/budget/display-category";
 
-const BudgetDisplayItems = () => {
+const BudgetDisplayCategories = () => {
   const { budgetItems } = useSelector((state: RootState) => state.budget);
   const notEmptyCategories: { category: string; items: BudgetItem[] }[] = [];
 
@@ -51,4 +51,4 @@ const BudgetDisplayItems = () => {
   );
 };
 
-export default BudgetDisplayItems;
+export default BudgetDisplayCategories;
