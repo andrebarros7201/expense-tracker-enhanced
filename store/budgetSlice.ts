@@ -16,6 +16,9 @@ const budgetSlice = createSlice({
   reducers: {
     updateIncome: (state, action: PayloadAction<number>) => {
       state.income = action.payload;
+      state.budgetItems.map((item: BudgetItem) => {
+        item.value = state.income / item.percentage;
+      });
     },
     addBudgetItem(
       state,
@@ -54,6 +57,11 @@ const budgetSlice = createSlice({
       );
       if (index > -1) {
         state.budgetItems[index] = action.payload;
+        const sumItemsPercentage = state.budgetItems.reduce(
+          (sum, item: BudgetItem) => sum + item.percentage,
+          0,
+        );
+        state.maxPercentage = 100 - sumItemsPercentage;
       }
     },
   },
