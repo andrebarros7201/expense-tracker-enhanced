@@ -48,6 +48,7 @@ const BudgetPage = () => {
         </div>
 
         <form
+          role={"form"}
           className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 bg-gray-100 shadow-lg rounded-md w-full"
           onSubmit={(e) => handleSubmit(e)}
         >
@@ -74,6 +75,7 @@ const BudgetPage = () => {
             <select
               className="w-full h-full border-2 border-blue-500 rounded p-2"
               ref={categoryRef}
+              id={"category"}
             >
               {categories.map((category) => (
                 <option key={category} value={category}>
