@@ -5,7 +5,7 @@ import { useState } from "react";
 const DisplayYear: React.FC<{ year: InvestmentItem }> = ({ year }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className={"w-full "}>
+    <div className={"w-full"}>
       <div
         className={
           "flex  items-center justify-center sm:justify-start cursor-pointer"
@@ -14,7 +14,7 @@ const DisplayYear: React.FC<{ year: InvestmentItem }> = ({ year }) => {
       >
         <h3 className={"font-bold "}>
           {!isOpen ? "➡️ " : "⬇️ "}{" "}
-          {`${year.year}| ${year.value} $  ${year.yearlyDifference > 0 ? `| (+ ${year.yearlyDifference} $)` : ""} `}
+          {`${year.year} | ${year.value} $  ${year.yearlyDifference > 0 ? `| (+ ${year.yearlyDifference} $)` : ""} `}
         </h3>
       </div>
       {isOpen && (

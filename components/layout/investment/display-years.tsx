@@ -22,7 +22,7 @@ const DisplayYears = () => {
   return (
     <div
       className={
-        "flex flex-col gap-4  bg-gray-100 rounded-md w-full box-border p-4 items-center justify-center shadow-lg border-2 border-blue-500"
+        "flex flex-col gap-4  bg-gray-100 rounded-md w-full max-h-96 overflow-y-scroll box-border p-4 items-center justify-start shadow-lg border-2 border-blue-500"
       }
     >
       {prediction.map((year: InvestmentItem) => (
