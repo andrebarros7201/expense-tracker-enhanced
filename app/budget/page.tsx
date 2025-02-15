@@ -1,4 +1,4 @@
-import BudgetForm from "@/components/layout/budget/budgetForm";
+import BudgetForm from "@/components/layout/budget/budget-form";
 import BudgetDisplayCategories from "@/components/layout/budget/display-categories";
 
 export default function BudgetPage() {
