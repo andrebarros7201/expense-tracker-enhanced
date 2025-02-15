@@ -13,11 +13,12 @@ const DisplayYear: React.FC<{ year: InvestmentItem }> = ({ year }) => {
         onClick={() => setIsOpen(!isOpen)}
       >
         <h3 className={"font-bold "}>
-          {!isOpen ? "➡️ " : "⬇️ "} {year.year}
+          {!isOpen ? "➡️ " : "⬇️ "}{" "}
+          {`${year.year}| ${year.value} $  ${year.yearlyDifference > 0 ? `| (+ ${year.yearlyDifference} $)` : ""} `}
         </h3>
       </div>
       {isOpen && (
-        <div className={"grid gap-2 grid-cols-1 sm:grid-cols-3 md:grid-cols-6"}>
+        <div className={"grid gap-2 grid-cols-2 sm:grid-cols-3 md:grid-cols-6"}>
           {year.months.map((month) => (
             <div key={month.month} className={"p-4 text-center flex flex-col"}>
               <p>{month.month}:</p>
