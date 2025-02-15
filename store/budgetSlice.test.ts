@@ -1,9 +1,9 @@
-import { describe, it, expect } from "vitest";
+import { describe, expect, it } from "vitest";
 import budgetReducer, {
-  updateIncome,
   addBudgetItem,
   removeBudgetItem,
   updateBudgetItem,
+  updateIncome,
 } from "@/store/budgetSlice";
 import { BudgetState } from "@/types/budgetState";
 import { BudgetItem } from "@/types/budgetItem";
@@ -13,7 +13,8 @@ describe("budgetSlice", () => {
     id: 1,
     income: 0,
     budgetItems: [],
-    categories: [],
+    categories: ["House"],
+    maxPercentage: 100,
   };
 
   it("should return the initial state", () => {
