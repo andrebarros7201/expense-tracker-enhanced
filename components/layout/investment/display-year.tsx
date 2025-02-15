@@ -14,15 +14,17 @@ const DisplayYear: React.FC<{ year: InvestmentItem }> = ({ year }) => {
       >
         <h3 className={"font-bold "}>
           {!isOpen ? "➡️ " : "⬇️ "}{" "}
-          {`${year.year} | ${year.value} $  ${year.yearlyDifference > 0 ? `| (+ ${year.yearlyDifference} $)` : ""} `}
+          {`${year.year} | ${String(year.value).replace(/\B(?=(\d{3})+(?!\d))/g, " ")} $  ${year.yearlyDifference > 0 ? `| (+ ${String(year.yearlyDifference).replace(/\B(?=(\d{3})+(?!\d))/g, " ")} $)` : ""} `}
         </h3>
       </div>
       {isOpen && (
         <div className={"grid gap-2 grid-cols-2 sm:grid-cols-3 md:grid-cols-6"}>
           {year.months.map((month) => (
-            <div key={month.month} className={"p-4 text-center flex flex-col"}>
+            <div key={month.month} className={"p-2 text-center flex flex-col"}>
               <p>{month.month}:</p>
-              <p>{month.value} $</p>
+              <p>
+                {String(month.value).replace(/\B(?=(\d{3})+(?!\d))/g, " ")} $
+              </p>
             </div>
           ))}
         </div>
