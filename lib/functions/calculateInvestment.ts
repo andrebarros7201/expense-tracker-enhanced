@@ -40,11 +40,12 @@ const calculateInvestment = ({
     for (let j = 0; j < 12; j++) {
       balance += monthlyContribution;
       balance *= monthlyGrowth;
-      data.months[j].value = balance;
+      data.months[j].value = Number(balance.toFixed(2));
     }
 
-    data.value = balance;
-    data.yearlyDifference = i === 0 ? 0 : data.value - prediction[i - 1].value;
+    data.value = Number(balance.toFixed(2));
+    data.yearlyDifference =
+      i === 0 ? 0 : Number((data.value - prediction[i - 1].value).toFixed(2));
     prediction.push(data);
   }
   return prediction;
