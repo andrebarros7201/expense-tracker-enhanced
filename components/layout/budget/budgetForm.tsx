@@ -72,7 +72,7 @@ const BudgetPage = () => {
               Category
             </label>
             <select
-              className="w-full h-full border-2 border-blue-500 rounded"
+              className="w-full h-full border-2 border-blue-500 rounded p-2"
               ref={categoryRef}
             >
               {categories.map((category) => (
