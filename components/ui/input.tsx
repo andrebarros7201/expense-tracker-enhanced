@@ -13,7 +13,7 @@ interface Props {
 export const Input = forwardRef<HTMLInputElement, Props>(
   ({ placeholder, type, name, min, max, label, onChange }, ref) => {
     return (
-      <div className={"flex flex-col items-start gap-2 "}>
+      <div className={"flex flex-col items-start gap-2 text-nowrap"}>
         {label ? <label htmlFor={name}>{label}</label> : null}
 
         <input
