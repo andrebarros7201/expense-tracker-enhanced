@@ -33,62 +33,60 @@ const BudgetPage = () => {
   }
 
   return (
-    <section className="w-full flex flex-col items-center justify-start flex-1">
-      <div className="flex flex-col gap-6 w-full">
-        <div className="p-4 shadow-lg bg-gray-100 rounded-md w-full">
-          <Input
-            type="number"
-            name="income"
-            min={0}
-            placeholder="Ex: 1000"
-            ref={incomeRef}
-            label={"Income"}
-            onChange={handleIncomeChange}
-          />
-        </div>
-
-        <form
-          role={"form"}
-          className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 bg-gray-100 shadow-lg rounded-md w-full"
-          onSubmit={(e) => handleSubmit(e)}
-        >
-          <Input
-            type="text"
-            name="name"
-            placeholder="Groceries..."
-            ref={nameRef}
-            label={"Name"}
-          />
-          <Input
-            type="number"
-            min={1}
-            max={maxPercentage}
-            ref={percentageRef}
-            name="percentage"
-            label={"Percentage"}
-            placeholder={`1- ${maxPercentage}`}
-          />
-          <div className={"flex flex-col items-start gap-2 "}>
-            <label htmlFor={"category"} className={"capitalize"}>
-              Category
-            </label>
-            <select
-              className="w-full h-full border-2 border-blue-500 rounded p-2"
-              ref={categoryRef}
-              id={"category"}
-            >
-              {categories.map((category) => (
-                <option key={category} value={category}>
-                  {category}
-                </option>
-              ))}
-            </select>
-          </div>
-          <button className="bg-blue-500 text-white py-2 px-6 rounded hover:bg-blue-600 transition-all duration-300 shadow-md">
-            Add New Item
-          </button>
-        </form>
+    <section className="w-full flex flex-col items-center justify-start flex-1 gap-4">
+      <div className="p-4 shadow-lg bg-gray-100 rounded-md w-full border-2 border-blue-500">
+        <Input
+          type="number"
+          name="income"
+          min={0}
+          placeholder="Ex: 1000"
+          ref={incomeRef}
+          label={"Income"}
+          onChange={handleIncomeChange}
+        />
       </div>
+
+      <form
+        role={"form"}
+        className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 bg-gray-100 shadow-lg rounded-md w-full border-2 border-blue-500"
+        onSubmit={(e) => handleSubmit(e)}
+      >
+        <Input
+          type="text"
+          name="name"
+          placeholder="Groceries..."
+          ref={nameRef}
+          label={"Name"}
+        />
+        <Input
+          type="number"
+          min={1}
+          max={maxPercentage}
+          ref={percentageRef}
+          name="percentage"
+          label={"Percentage"}
+          placeholder={`1- ${maxPercentage}`}
+        />
+        <div className={"flex flex-col items-start gap-2 "}>
+          <label htmlFor={"category"} className={"capitalize"}>
+            Category
+          </label>
+          <select
+            className="w-full h-full border-2 border-blue-500 rounded p-2"
+            ref={categoryRef}
+            id={"category"}
+          >
+            {categories.map((category) => (
+              <option key={category} value={category}>
+                {category}
+              </option>
+            ))}
+          </select>
+        </div>
+        <button className="bg-blue-500 text-white py-2 px-6 rounded hover:bg-blue-600 transition-all duration-300 shadow-md">
+          Add New Item
+        </button>
+      </form>
     </section>
   );
 };

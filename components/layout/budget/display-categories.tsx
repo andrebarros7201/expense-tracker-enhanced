@@ -30,7 +30,7 @@ const BudgetDisplayCategories = () => {
     return (
       <div
         className={
-          "bg-gray-100 rounded-md w-full box-border p-4 flex items-center justify-center shadow-lg"
+          "bg-gray-100 rounded-md w-full box-border p-4 flex items-center justify-center shadow-lg border-2 border-blue-500"
         }
       >
         <h3 className={"font-bold italic"}>There are no items to display</h3>
@@ -41,7 +41,7 @@ const BudgetDisplayCategories = () => {
   return (
     <div
       className={
-        "bg-gray-100 rounded-md w-full box-border p-4 flex items-center justify-center shadow-lg"
+        "bg-gray-100 rounded-md w-full box-border p-4 flex items-center justify-center shadow-lg border-2 border-blue-500"
       }
     >
       {notEmptyCategories.map((category) => (
