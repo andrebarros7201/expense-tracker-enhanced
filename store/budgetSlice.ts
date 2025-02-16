@@ -6,7 +6,18 @@ const initialState: BudgetState = {
   id: 1,
   income: 0,
   budgetItems: [],
-  categories: ["House"],
+  categories: [
+    "House",
+    "Utilities",
+    "Food",
+    "Transportation",
+    "Insurance",
+    "Healthcare",
+    "Debt Payments",
+    "Bills",
+    "Education",
+    "Miscellaneous",
+  ],
   maxPercentage: 100,
 };
 
