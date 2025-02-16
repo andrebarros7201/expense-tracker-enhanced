@@ -4,6 +4,9 @@ import { useState } from "react";
 
 const DisplayYear: React.FC<{ year: InvestmentItem }> = ({ year }) => {
   const [isOpen, setIsOpen] = useState(false);
+
+  //TODO change to grid instead of having only one p element (year header)
+
   return (
     <div className={"w-full"}>
       <div
@@ -12,10 +15,21 @@ const DisplayYear: React.FC<{ year: InvestmentItem }> = ({ year }) => {
         }
         onClick={() => setIsOpen(!isOpen)}
       >
-        <h3 className={"font-bold "}>
-          {!isOpen ? "➡️ " : "⬇️ "}{" "}
-          {`${year.year} | ${String(year.value).replace(/\B(?=(\d{3})+(?!\d))/g, " ")} $  ${year.yearlyDifference > 0 ? `| (+ ${String(year.yearlyDifference).replace(/\B(?=(\d{3})+(?!\d))/g, " ")} $)` : ""} `}
-        </h3>
+        <div
+          className={
+            "w-full font-bold flex flex-col sm:grid sm:grid-cols-5  gap-4"
+          }
+        >
+          <p>
+            {!isOpen ? "➡️ " : "⬇️ "} {year.year}
+          </p>
+          <p>{String(year.value).replace(/\B(?=(\d{3})+(?!\d))/g, " ")} $</p>
+          <p>
+            {year.yearlyDifference > 0
+              ? `(+ ${String(year.yearlyDifference).replace(/\B(?=(\d{3})+(?!\d))/g, " ")} $)`
+              : ""}
+          </p>
+        </div>
       </div>
       {isOpen && (
         <div className={"grid gap-2 grid-cols-2 sm:grid-cols-3 md:grid-cols-6"}>

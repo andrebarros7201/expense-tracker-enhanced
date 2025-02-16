@@ -22,12 +22,27 @@ const DisplayYears = () => {
   return (
     <div
       className={
-        "flex flex-col gap-4  bg-gray-100 rounded-md w-full max-h-96 overflow-y-scroll box-border p-4 items-center justify-start shadow-lg border-2 border-blue-500"
+        "w-full shadow-lg border-2 border-blue-500 rounded-md max-h-96 overflow-y-scroll box-border"
       }
     >
-      {prediction.map((year: InvestmentItem) => (
-        <DisplayYear key={year.year} year={year} />
-      ))}
+      <div
+        className={
+          "w-full font-bold flex flex-col sm:grid sm:grid-cols-5 gap-4 sticky top-0 bg-gray-100 shadow-md p-4 pb-2"
+        }
+      >
+        <p>Year</p>
+        <p>Final Value</p>
+        <p>Year Difference</p>
+      </div>
+      <div
+        className={
+          "flex flex-col gap-4  bg-gray-100   p-4 items-center justify-start "
+        }
+      >
+        {prediction.map((year: InvestmentItem) => (
+          <DisplayYear key={year.year} year={year} />
+        ))}
+      </div>
     </div>
   );
 };
