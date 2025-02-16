@@ -28,7 +28,7 @@ const budgetSlice = createSlice({
     updateIncome: (state, action: PayloadAction<number>) => {
       state.income = action.payload;
       state.budgetItems.map((item: BudgetItem) => {
-        item.value = state.income / item.percentage;
+        item.value = state.income * (item.percentage / 100);
       });
     },
     addBudgetItem(
@@ -45,7 +45,7 @@ const budgetSlice = createSlice({
         name,
         percentage,
         category,
-        value: state.income / percentage,
+        value: state.income * (percentage / 100),
       });
       state.id++;
       const sumItemsPercentage = state.budgetItems.reduce(
@@ -59,8 +59,8 @@ const budgetSlice = createSlice({
         (item) => item.id === action.payload,
       );
       if (index > -1) {
-        state.budgetItems.splice(index, 1);
         state.maxPercentage += state.budgetItems[index].percentage;
+        state.budgetItems.splice(index, 1);
       }
     },
     updateBudgetItem(state, action: PayloadAction<BudgetItem>) {
@@ -74,7 +74,7 @@ const budgetSlice = createSlice({
           0,
         );
         state.budgetItems[index].value =
-          state.income / state.budgetItems[index].percentage;
+          state.income / (state.budgetItems[index].percentage / 100);
         state.maxPercentage = 100 - sumItemsPercentage;
       }
     },
