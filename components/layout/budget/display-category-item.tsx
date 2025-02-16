@@ -8,7 +8,7 @@ const DisplayCategoryItem: React.FC<{
   return (
     <div
       key={item.id}
-      className={`md:pl-6 flex gap-4 flex-col items-center justify-center w-full md:grid grid-cols-[1.5fr_1.5fr_1.5fr_1fr_1fr] border-2 border-blue-500`}
+      className={`md:pl-6 flex gap-4 flex-col items-center justify-center w-full md:grid grid-cols-[1.5fr_1.5fr_1.5fr_1fr_1fr] `}
     >
       <p>Name: {item.name}</p>
       <p>Percentage: {item.percentage} %</p>

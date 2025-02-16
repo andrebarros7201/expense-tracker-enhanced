@@ -32,10 +32,7 @@ const DisplayCategory = ({ item }: Props) => {
         {item.category}
       </h3>
       {isOpen && (
-        <div
-          key={item.category}
-          className={"flex w-full gap-4 flex-col border-2"}
-        >
+        <div key={item.category} className={"flex w-full gap-4 flex-col "}>
           {item.items.map((item: BudgetItem) => (
             <>
               {!isEditing ? (
