@@ -27,7 +27,7 @@ const DisplayYears = () => {
     >
       <div
         className={
-          "w-full font-bold sm:flex gap-4 sticky top-0 hidden  bg-gray-100 shadow-md p-4 pb-2"
+          "w-full font-bold  grid grid-cols-3 sm:grid-cols-5 gap-4 sticky top-0  bg-gray-100 shadow-md p-4 pb-2"
         }
       >
         <p>Year</p>

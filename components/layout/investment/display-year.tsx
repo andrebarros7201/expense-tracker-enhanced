@@ -16,9 +16,7 @@ const DisplayYear: React.FC<{ year: InvestmentItem }> = ({ year }) => {
         onClick={() => setIsOpen(!isOpen)}
       >
         <div
-          className={
-            "w-full font-bold flex flex-col sm:grid sm:grid-cols-5  gap-4"
-          }
+          className={"w-full font-bold grid grid-cols-3 sm:grid-cols-5  gap-4"}
         >
           <p>
             {!isOpen ? "➡️ " : "⬇️ "} {year.year}
