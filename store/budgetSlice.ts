@@ -60,6 +60,7 @@ const budgetSlice = createSlice({
       );
       if (index > -1) {
         state.budgetItems.splice(index, 1);
+        state.maxPercentage += state.budgetItems[index].percentage;
       }
     },
     updateBudgetItem(state, action: PayloadAction<BudgetItem>) {
