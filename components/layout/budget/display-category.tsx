@@ -1,16 +1,12 @@
 "use client";
 import { BudgetItem } from "@/types/budgetItem";
 import { useState } from "react";
-import BudgetUpdateItemForm from "@/components/layout/budget/budget-update-item-form";
-import { removeBudgetItem } from "@/store/budgetSlice";
-import { useDispatch } from "react-redux";
 import DisplayCategoryItem from "@/components/layout/budget/display-category-item";
 
 type Props = {
   item: { category: string; items: BudgetItem[] };
 };
 const DisplayCategory = ({ item }: Props) => {
-  const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -25,9 +21,13 @@ const DisplayCategory = ({ item }: Props) => {
       >
         {item.category}
       </h3>
-      {item.items.map((budgetItem) => (
-        <DisplayCategoryItem item={budgetItem} />
-      ))}
+      {isOpen && (
+        <div className={"flex flex-col gap-4 w-full"}>
+          {item.items.map((budgetItem, index) => (
+            <DisplayCategoryItem key={index} item={budgetItem} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };
