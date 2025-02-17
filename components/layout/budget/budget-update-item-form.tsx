@@ -1,13 +1,15 @@
 import Input from "@/components/ui/input";
 import { FormEvent, useRef } from "react";
 import { updateBudgetItem } from "@/store/budgetSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { BudgetItem } from "@/types/budgetItem";
+import { RootState } from "@/store/store";
 
 const BudgetUpdateItemForm: React.FC<{
   item: BudgetItem;
   setIsEditing: (editing: boolean) => void;
 }> = ({ item, setIsEditing }) => {
+  const { maxPercentage } = useSelector((state: RootState) => state.budget);
   const dispatch = useDispatch();
   const nameRef = useRef<HTMLInputElement>(null);
   const percentageRef = useRef<HTMLInputElement>(null);
@@ -37,6 +39,8 @@ const BudgetUpdateItemForm: React.FC<{
         name={"name"}
         type={"number"}
         placeholder={"Percentage"}
+        min={0}
+        max={maxPercentage + item.percentage}
         ref={percentageRef}
       />
       <p>Value: {item.value}$</p>

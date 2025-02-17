@@ -5,8 +5,6 @@ import { useState } from "react";
 const DisplayYear: React.FC<{ year: InvestmentItem }> = ({ year }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  //TODO change to grid instead of having only one p element (year header)
-
   return (
     <div className={"w-full"}>
       <div

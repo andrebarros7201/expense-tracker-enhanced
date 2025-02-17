@@ -12,15 +12,9 @@ type Props = {
 const DisplayCategory = ({ item }: Props) => {
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
-  const [isEditing, setIsEditing] = useState(false);
-
-  function handleDeleteItem(item: number) {
-    dispatch(removeBudgetItem(item));
-  }
 
   return (
     <div
-      key={item.category}
       className={
         "w-full flex flex-col items-center justify-start md:items-start  p-4  box-border"
       }
@@ -31,23 +25,9 @@ const DisplayCategory = ({ item }: Props) => {
       >
         {item.category}
       </h3>
-      {isOpen && (
-        <div key={item.category} className={"flex w-full gap-4 flex-col "}>
-          {item.items.map((item: BudgetItem) => (
-            <>
-              {!isEditing ? (
-                <DisplayCategoryItem
-                  item={item}
-                  setIsEditing={setIsEditing}
-                  handleDeleteItem={handleDeleteItem}
-                />
-              ) : (
-                <BudgetUpdateItemForm item={item} setIsEditing={setIsEditing} />
-              )}
-            </>
-          ))}
-        </div>
-      )}
+      {item.items.map((budgetItem) => (
+        <DisplayCategoryItem item={budgetItem} />
+      ))}
     </div>
   );
 };
