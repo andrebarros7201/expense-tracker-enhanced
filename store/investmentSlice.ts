@@ -8,6 +8,12 @@ const initialState: InvestmentState = {
   monthlyContribution: 0,
   yearlyGrowth: 0,
   prediction: [],
+  stats: {
+    initialInvestment: 0,
+    totalInvested: 0,
+    totalGrowth: 0,
+    finalValue: 0,
+  },
 };
 
 const investmentSlice = createSlice({
@@ -34,6 +40,14 @@ const investmentSlice = createSlice({
         monthlyContribution: state.monthlyContribution,
         yearlyGrowth: state.yearlyGrowth,
       });
+
+      state.stats.initialInvestment = state.initialAmount;
+      state.stats.totalInvested =
+        state.initialAmount + state.monthlyContribution * 12 * state.years;
+      state.stats.finalValue =
+        state.prediction[state.prediction.length - 1].months[12].value;
+      state.stats.totalGrowth =
+        state.stats.finalValue - state.stats.totalInvested;
     },
   },
 });

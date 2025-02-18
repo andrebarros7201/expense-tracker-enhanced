@@ -11,6 +11,12 @@ describe("Investment Slice", () => {
     monthlyContribution: 0,
     yearlyGrowth: 0,
     prediction: [],
+    stats: {
+      initialInvestment: 0,
+      totalInvested: 0,
+      totalGrowth: 0,
+      finalValue: 0,
+    },
   };
 
   it("should return initial state", () => {

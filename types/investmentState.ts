@@ -6,4 +6,10 @@ export default interface InvestmentState {
   monthlyContribution: number;
   yearlyGrowth: number;
   prediction: InvestmentItem[];
+  stats: {
+    totalInvested: number;
+    totalGrowth: number;
+    finalValue: number;
+    initialInvestment: number;
+  };
 }
