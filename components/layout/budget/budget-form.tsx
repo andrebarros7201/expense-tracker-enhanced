@@ -6,7 +6,7 @@ import { RootState } from "@/store/store";
 import { addBudgetItem, updateIncome } from "@/store/budgetSlice";
 
 const BudgetPage = () => {
-  const { categories, maxPercentage } = useSelector(
+  const { categories, maxPercentage, income } = useSelector(
     (state: RootState) => state.budget,
   );
   const dispatch = useDispatch();
@@ -42,6 +42,7 @@ const BudgetPage = () => {
           placeholder="Ex: 1000"
           ref={incomeRef}
           label={"Income"}
+          value={income}
           onChange={handleIncomeChange}
         />
       </div>
