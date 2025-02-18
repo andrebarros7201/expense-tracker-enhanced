@@ -7,7 +7,7 @@ const Stats = () => {
   return (
     <section
       className={
-        "w-full border-2 border-blue-500 rounded-md shadow-xl p-4 flex flex-col items-center bg-gray-100 gap-4"
+        "w-full border-2 border-blue-500 rounded-md shadow-xl p-4 flex flex-col items-center justify-evenly bg-gray-100 gap-4"
       }
     >
       <p>
