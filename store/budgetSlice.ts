@@ -69,12 +69,12 @@ const budgetSlice = createSlice({
       );
       if (index > -1) {
         state.budgetItems[index] = action.payload;
+        state.budgetItems[index].value =
+          state.income * (state.budgetItems[index].percentage / 100);
         const sumItemsPercentage = state.budgetItems.reduce(
           (sum, item: BudgetItem) => sum + item.percentage,
           0,
         );
-        state.budgetItems[index].value =
-          state.income / (state.budgetItems[index].percentage / 100);
         state.maxPercentage = 100 - sumItemsPercentage;
       }
     },
