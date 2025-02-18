@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { BudgetState } from "@/types/budgetState";
 import { BudgetItem } from "@/types/budgetItem";
 
-const localState = JSON.parse(<string>localStorage.getItem("budget"));
+const localState = JSON.parse(<string>localStorage.getItem("budget")) || {};
 
 const initialState: BudgetState = {
   id: localState?.id || 1,
