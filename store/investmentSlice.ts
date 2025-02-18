@@ -42,12 +42,20 @@ const investmentSlice = createSlice({
       });
 
       state.stats.initialInvestment = state.initialAmount;
-      state.stats.totalInvested =
-        state.initialAmount + state.monthlyContribution * 12 * state.years;
-      state.stats.finalValue =
-        state.prediction[state.prediction.length - 1].months[12].value;
-      state.stats.totalGrowth =
-        state.stats.finalValue - state.stats.totalInvested;
+      state.stats.totalInvested = Number(
+        (
+          state.initialAmount +
+          state.monthlyContribution * 12 * state.years
+        ).toFixed(2),
+      );
+      state.stats.finalValue = Number(
+        state.prediction[state.prediction.length - 1].months[11].value.toFixed(
+          2,
+        ),
+      );
+      state.stats.totalGrowth = Number(
+        (state.stats.finalValue - state.stats.totalInvested).toFixed(2),
+      );
     },
   },
 });
