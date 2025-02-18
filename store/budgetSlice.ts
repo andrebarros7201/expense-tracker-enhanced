@@ -2,11 +2,13 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { BudgetState } from "@/types/budgetState";
 import { BudgetItem } from "@/types/budgetItem";
 
+const localState = JSON.parse(<string>localStorage.getItem("budget"));
+
 const initialState: BudgetState = {
-  id: 1,
-  income: 0,
-  budgetItems: [],
-  categories: [
+  id: localState?.id || 1,
+  income: localState?.income || 0,
+  budgetItems: localState?.budgetItems || [],
+  categories: localState?.categories || [
     "House",
     "Utilities",
     "Food",
@@ -18,7 +20,7 @@ const initialState: BudgetState = {
     "Education",
     "Miscellaneous",
   ],
-  maxPercentage: 100,
+  maxPercentage: localState?.maxPercentage || 100,
 };
 
 const budgetSlice = createSlice({
@@ -30,6 +32,7 @@ const budgetSlice = createSlice({
       state.budgetItems.map((item: BudgetItem) => {
         item.value = state.income * (item.percentage / 100);
       });
+      localStorage.setItem("budget", JSON.stringify(state));
     },
     addBudgetItem(
       state,
@@ -53,6 +56,7 @@ const budgetSlice = createSlice({
         0,
       );
       state.maxPercentage = 100 - sumItemsPercentage;
+      localStorage.setItem("budget", JSON.stringify(state));
     },
     removeBudgetItem(state, action: PayloadAction<number>) {
       const index = state.budgetItems.findIndex(
@@ -62,6 +66,7 @@ const budgetSlice = createSlice({
         state.maxPercentage += state.budgetItems[index].percentage;
         state.budgetItems.splice(index, 1);
       }
+      localStorage.setItem("budget", JSON.stringify(state));
     },
     updateBudgetItem(state, action: PayloadAction<BudgetItem>) {
       const index = state.budgetItems.findIndex(
@@ -77,6 +82,7 @@ const budgetSlice = createSlice({
         );
         state.maxPercentage = 100 - sumItemsPercentage;
       }
+      localStorage.setItem("budget", JSON.stringify(state));
     },
   },
 });
