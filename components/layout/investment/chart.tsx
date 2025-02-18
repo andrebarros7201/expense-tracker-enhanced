@@ -27,7 +27,7 @@ const Chart = () => {
     labels: prediction.map((item) => item.year),
     datasets: [
       {
-        label: "Investment Value",
+        label: "Prediction",
         data: prediction.map((item) => item.value),
         backgroundColor: "rgba(59, 130, 246, 0.5)",
         borderWidth: 1,
