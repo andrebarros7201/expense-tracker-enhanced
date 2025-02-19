@@ -18,4 +18,4 @@ Built with Next.js, Tailwind CSS, and TypeScript, this app provides a sleek and 
 ### Future Improvements
 
 - Dark mode: Toggle between light and dark themes.
-- Export Data: Download transaction history as CSV or PDF.
+- Export Data: Download data as CSV or PDF.
