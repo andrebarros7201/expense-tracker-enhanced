@@ -31,7 +31,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col items-center`}
       >
         <Header />
-        <div className="flex flex-col flex-1 w-full max-w-4xl">
+        <div className="flex flex-col flex-1 w-full max-w-4xl px-4 lg:px-0">
           <ReduxProvider>{children}</ReduxProvider>
         </div>
         <Footer />
