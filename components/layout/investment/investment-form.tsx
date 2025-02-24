@@ -1,8 +1,12 @@
 "use client";
 import Input from "@/components/ui/input";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { FormEvent, useRef } from "react";
 import { calculatePrediction } from "@/store/investmentSlice";
+import { RootState } from "@/store/store";
+import exportToCSV from "@/lib/functions/exportToCSV";
+import downloadSVG from "@/public/download.svg";
+import Image from "next/image";
 
 const InvestmentForm = () => {
   const dispatch = useDispatch();
@@ -10,6 +14,9 @@ const InvestmentForm = () => {
   const initialAmountRef = useRef<HTMLInputElement>(null);
   const monthlyContributionRef = useRef<HTMLInputElement>(null);
   const yearlyGrowthRef = useRef<HTMLInputElement>(null);
+  const { prediction } = useSelector((state: RootState) => state.investment);
+
+  const downloadEnable = prediction.length > 0;
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -23,10 +30,14 @@ const InvestmentForm = () => {
     );
   }
 
+  function handleDownloadData() {
+    exportToCSV(prediction);
+  }
+
   return (
     <section
       className={
-        "border-2 border-blue-500 w-full flex flex-col p-4 bg-gray-100 rounded-md shadow-xl"
+        "border-2 border-blue-500 w-full flex flex-col md:flex-row gap-4 p-4 bg-gray-100 rounded-md shadow-xl"
       }
     >
       <form
@@ -72,6 +83,14 @@ const InvestmentForm = () => {
           Calculate
         </button>
       </form>
+      <button
+        type={"button"}
+        onClick={handleDownloadData}
+        disabled={!downloadEnable}
+        className={`${downloadEnable ? "bg-blue-500 hover:bg-blue-600" : "bg-gray-400 cursor-not-allowed"} text-white p-4 rounded  transition-all duration-300 shadow-md sm:col-span-2 md:col-span-1`}
+      >
+        <Image src={downloadSVG} alt="" width={64} height={32} />
+      </button>
     </section>
   );
 };
