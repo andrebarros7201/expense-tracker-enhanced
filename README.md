@@ -7,6 +7,7 @@ Built with Next.js, Tailwind CSS, and TypeScript, this app provides a sleek and 
 - Expense Management: Add, edit, and delete expenses with categorized tracking.
 - Data Visualization: Charts powered by Chart.js to display data.
 - Responsive Design: Fully optimized for mobile and desktop users.
+- Export Data: Download data as CSV or PDF.
 
 ### Tech Stack
 
@@ -18,4 +19,4 @@ Built with Next.js, Tailwind CSS, and TypeScript, this app provides a sleek and 
 ### Future Improvements
 
 - Dark mode: Toggle between light and dark themes.
-- Export Data: Download data as CSV or PDF.
+
