@@ -8,7 +8,7 @@ Built with Next.js, Tailwind CSS, and TypeScript, this app provides a sleek and 
 - Data Visualization: Charts powered by Chart.js to display data.
 - Responsive Design: Fully optimized for mobile and desktop users.
 - Export Data: Download data as CSV or PDF.
-- 
+
 ### Tech Stack
 
 - Framework: Next.js
